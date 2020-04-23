@@ -29,7 +29,7 @@ a:any-link {
 }
 
 body {
-  font-family: "Dosis", sans-serif;
+  font-family: var(--mainFont)
 }
 
 *:focus {

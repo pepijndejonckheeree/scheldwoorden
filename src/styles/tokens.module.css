@@ -3,4 +3,9 @@
   --primary-color: #ffc107;
   --secondary-color: #e38b15;
   --backgrounColor: rgb(63,94,251);
+  --mainFont: Asset, sans-serif;
 }
+
+
+
+@import url(https://fonts.googleapis.com/css2?family=Asset&display=swap);
