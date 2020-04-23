@@ -30,7 +30,7 @@ const ShareUrl = ({ value }) => {
 
   return (
     <div className={style.container}>
-      <p className={style.label}>Deel jouw vuistje uit met deze link:</p>
+      <p className={style.label}>Deel je scheldpartij:</p>
       <code className={style.code}>{value}</code>
       <button className={style.copy} onClick={handleCopy}>
         {copyText}

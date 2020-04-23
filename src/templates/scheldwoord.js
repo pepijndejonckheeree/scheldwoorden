@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Content from "../components/content"
 import Vuist from "../components/vuist"
-import style from "./vuistje.module.css"
+import style from "./scheldwoord.module.css"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 

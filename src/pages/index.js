@@ -12,8 +12,9 @@ const IndexPage = ({ data }) => (
     <ul>
       {data.allContentfulScheldwoord.edges.map(({ node }) => (
         <li>
-          <Link to={node.id}>{node.id}</Link>
+          <Link to={`scheldwoord/${node.id}`}>{node.id}</Link>
           <p>{node.scheldwoord}</p>
+          <p>{node.from}</p>
         </li>
       ))}
     </ul>
@@ -30,8 +31,9 @@ export const query = graphql`
     allContentfulScheldwoord {
       edges {
         node {
-          id
+          id: contentful_id
           scheldwoord
+          from
         }
       }
     }

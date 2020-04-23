@@ -26,8 +26,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allContentfulScheldwoord.edges.forEach(({ node }) => {
     createPage({
-      path: node.id,
-      component: path.resolve(`./src/templates/vuistje.js`),
+      path: `scheldwoord/${node.id}`,
+      component: path.resolve(`./src/templates/scheldwoord.js`),
       context: {
         id: node.id,
         from: node.from,
