@@ -10,14 +10,15 @@ const IndexPage = ({ data }) => (
     <SEO title="Home" />
 
     <ul>
-      {data.allContentfulVuist.edges.map(({ node }) => (
+      {data.allContentfulScheldwoord.edges.map(({ node }) => (
         <li>
           <Link to={node.id}>{node.id}</Link>
+          <p>{node.scheldwoord}</p>
         </li>
       ))}
     </ul>
     <Link to="/create" className={style.button}>
-      Geef een vuistje
+     Kies een mooi scheldwoord
     </Link>
   </Layout>
 )
@@ -26,10 +27,11 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    allContentfulVuist {
+    allContentfulScheldwoord {
       edges {
         node {
-          id: contentful_id
+          id
+          scheldwoord
         }
       }
     }
