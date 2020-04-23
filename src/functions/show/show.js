@@ -7,27 +7,30 @@ const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_MANAGEMENT_TOKEN,
 })
 
+const storage = new Map()
 
 exports.handler = async function(event, context) {
   try {
     
     const id = event.queryStringParameters.id.replace("/", "")
-    console.log("id", id)
+    let scheldpartij
 
-    const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
-    const environment = await space.getEnvironment("master")
-    const entry = await environment.getEntry("scheldwoord", scheldpartij.id) 
+    if(storage.has(id)) {
 
-    const scheldpartij =  {
-      from: entry.fields.from["eng-US"],
-      scheldwoord: entry.fields.scheldwoord["eng-US"]
+      scheldpartij = storage.get(id)
+    }else{
+      console.log("id", id)
+
+      const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
+      const environment = await space.getEnvironment("master")
+      const entry = await environment.getEntry("scheldwoord", scheldpartij.id) 
+
+      scheldpartij =  {
+        from: entry.fields.from["eng-US"],
+        scheldwoord: entry.fields.scheldwoord["eng-US"]
+      }
+      storage.set(id, scheldpartij)
     }
-
-  
-    await entry.publish()
-
-
-
 
     return {
       statusCode: 200,
