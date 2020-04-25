@@ -13,6 +13,7 @@ import style from "./show.module.css"
 const ShowPage = ({ location }) => {
   const [id] = useQueryParam("id", StringParam)
   const [scheldwoord, setScheldwoord] = useState(null)
+  console.log(scheldwoord);
 
   const domain = location.origin ? location.origin : ""
 

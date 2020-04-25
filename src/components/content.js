@@ -2,18 +2,14 @@ import React from "react"
 
 import style from "./content.module.css"
 
-const Content = ({ from, to, scheldwoord }) => {
+const Content = ({ from, scheldwoord }) => {
 
 
   return (
-    <dl className={style.container}>
-      <dt className="visually-hidden">To</dt>
-      <dd className={style.to}>{to}</dd>
-      <dt className="visually-hidden">Message</dt>
-      <dd className={style.message}>{scheldwoord}</dd>
-      <dt className="visually-hidden">From</dt>
-      <dd className={style.from}>{from}</dd>
-    </dl>
+    <div className={style.container}>
+      <p className={style.from}>{from}</p>
+      <p className={style.from}>{scheldwoord}</p>
+    </div>
   )
 }
 
